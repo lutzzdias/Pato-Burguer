@@ -2,13 +2,49 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 
-// FALTA O TEXTO DA HOME(Cliente) e Proprietários
+// Proprietários
 
 class AppTextStyles {
   static final buttons = GoogleFonts.poppins(
     fontSize: 20,
     fontWeight: FontWeight.w700,
     color: const Color(0xFFFFFFFF),
+  );
+  static final homeButtonOrange = GoogleFonts.roboto(
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+    color: AppColors.orangeDark,
+  );
+  static final homeBarSelected = GoogleFonts.roboto(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: const Color(0xFFFFFFFF),
+  );
+  static final homeBarOption = GoogleFonts.roboto(
+    // Opacidade 80%
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: const Color(0xFFFFFFFF),
+  );
+  static final homeNameBlack = GoogleFonts.roboto(
+    fontSize: 24,
+    fontWeight: FontWeight.w900,
+    color: const Color(0xFF333333),
+  );
+  static final homeNameOrange = GoogleFonts.roboto(
+    fontSize: 24,
+    fontWeight: FontWeight.w900,
+    color: AppColors.orangeDark,
+  );
+  static final homeSaleBlack = GoogleFonts.roboto(
+    fontSize: 22,
+    fontWeight: FontWeight.w900,
+    color: AppColors.text,
+  );
+  static final homeSaleOrange = GoogleFonts.roboto(
+    fontSize: 22,
+    fontWeight: FontWeight.w900,
+    color: AppColors.orangeDark,
   );
   static final itemName = GoogleFonts.roboto(
     fontSize: 12,
