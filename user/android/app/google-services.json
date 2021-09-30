@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:919641479699:android:f95e415e29b18a7d203de6",
+        "mobilesdk_app_id": "1:919641479699:android:178d5767843fe8de203de6",
         "android_client_info": {
-          "package_name": "com.mega.pato_burguer"
+          "package_name": "com.patoburguer.user"
         }
       },
       "oauth_client": [
