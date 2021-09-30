@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:pato_burguer/screens/home/home.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 
 void main() {
-  runApp(AppWidget());
+  runApp(const MyApp());
 }
 
-class AppWidget extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
