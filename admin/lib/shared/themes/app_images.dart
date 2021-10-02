@@ -1,5 +1,5 @@
 class AppImages {
-  static const LogoPato = "assets/images/Logo_Pato_Burguer1_0_3_ final_vesion.png";
+  static const LogoPato = "assets/images/logopatologin";
   static const LogoLetras = "assets/images/Logo_letras.png";
   static const Admin = "assets/images/administrador.png";
   static const Cardapio = "assets/images/cardapio.png";
