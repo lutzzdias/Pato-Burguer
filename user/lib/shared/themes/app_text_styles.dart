@@ -84,8 +84,8 @@ class AppTextStyles {
     color: const Color(0xFFFFFFFF),
   );
   static final menuSelected = GoogleFonts.roboto(
-    fontSize: 24,
-    fontWeight: FontWeight.w900,
+    fontSize: 18,
+    fontWeight: FontWeight.w700,
     color: AppColors.orangeDark,
   );
   static final appBar = GoogleFonts.roboto(
