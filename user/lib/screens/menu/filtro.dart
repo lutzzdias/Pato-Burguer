@@ -24,46 +24,41 @@ class _FiltroState extends State<Filtro> {
           color: AppColors.fullWhite,
           fillColor: AppColors.fullWhite,
           renderBorder: false,
-          borderRadius: BorderRadius.circular(8),
           textStyle: AppTextStyles.menuOption,
           children: [
             Container(
-              padding: EdgeInsets.only(left: 6, right: 6),
+              padding: const EdgeInsets.only(left: 6, right: 6),
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
-              child: Text(
+              child: const Text(
                 "PROMOÇÕES",
                 textAlign: TextAlign.center,
               ),
             ),
             Container(
-              padding: EdgeInsets.only(left: 6, right: 6),
-              child: Text(
+              padding: const EdgeInsets.only(left: 6, right: 6),
+              child: const Text(
                 "CARNE",
-                //style: AppTextStyles.menuOption,
                 textAlign: TextAlign.center,
               ),
             ),
             Container(
-              padding: EdgeInsets.only(left: 6, right: 6),
-              child: Text(
+              padding: const EdgeInsets.only(left: 6, right: 6),
+              child: const Text(
                 "FRANGO",
-                //style: AppTextStyles.menuOption,
                 textAlign: TextAlign.center,
               ),
             ),
             Container(
-              padding: EdgeInsets.only(left: 6, right: 6),
-              child: Text(
+              padding: const EdgeInsets.only(left: 6, right: 6),
+              child: const Text(
                 "COMBOS",
-                //style: AppTextStyles.menuOption,
                 textAlign: TextAlign.center,
               ),
             ),
             Container(
-              padding: EdgeInsets.only(left: 6, right: 6),
-              child: Text(
+              padding: const EdgeInsets.only(left: 6, right: 6),
+              child: const Text(
                 "BEBIDAS",
-                //style: AppTextStyles.menuOption,
                 textAlign: TextAlign.center,
               ),
             ),

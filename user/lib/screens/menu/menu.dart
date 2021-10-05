@@ -9,10 +9,12 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.orangeDark,
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(125),
           child: SafeArea(
             child: AppBar(
+                elevation: 0,
                 leading: IconButton(
                   onPressed: () {
                     Navigator.pop(context);
@@ -30,7 +32,19 @@ class Menu extends StatelessWidget {
                   child: SizedBox(height: 40, child: Filtro()),
                 )),
           )),
-      body: null,
+      body: Container(
+          // padding: EdgeInsets.all(10),
+          height: MediaQuery.of(context).size.height * 0.8,
+          width: double.infinity,
+          color: Colors.transparent,
+          child: Container(
+            decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15.0),
+                  topRight: Radius.circular(15.0),
+                )),
+          )),
     );
   }
 }

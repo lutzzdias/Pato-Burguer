@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/screens/home/home.dart';
 import 'package:pato_burguer/screens/menu/menu.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 
@@ -12,9 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Pato Burguer',
       theme: ThemeData(primaryColor: AppColors.white),
-      home: const Menu(),
+      home: const Home(),
     );
   }
 }
