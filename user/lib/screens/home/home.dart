@@ -5,6 +5,7 @@ import 'package:pato_burguer/shared/themes/app_text_styles.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
+  final int screenIndex = 0;
 
   @override
   Widget build(BuildContext context) {
