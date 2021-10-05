@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
+import 'package:pato_burguer/shared/themes/custom_icons.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -21,36 +22,34 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_filled),
-          label: 'Home',
-          backgroundColor: AppColors.orangeDark,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.lunch_dining_rounded),
-          label: 'Lanches',
-          backgroundColor: AppColors.orangeDark,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_filled),
-          label: 'Bebidas',
-          backgroundColor: AppColors.orangeDark,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_filled),
-          label: 'Combos',
-          backgroundColor: AppColors.orangeDark,
-        ),
-      ],
       currentIndex: _selectedScreen,
       selectedItemColor: AppColors.fullWhite,
-      unselectedItemColor: AppColors.white,
+      unselectedItemColor: AppColors.orangeLight,
       selectedLabelStyle: AppTextStyles.homeBarSelected,
       unselectedLabelStyle: AppTextStyles.homeBarOption,
       onTap: _onItemTapped,
       showUnselectedLabels: true,
       elevation: 0,
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: AppColors.orangeDark,
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(CustomIcons.icon_home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(CustomIcons.icon_burguer),
+          label: 'Lanches',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(CustomIcons.icon_drink),
+          label: 'Bebidas',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(CustomIcons.icon_combo),
+          label: 'Combos',
+        ),
+      ],
     );
   }
 }
