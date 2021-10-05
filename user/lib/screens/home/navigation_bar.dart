@@ -16,13 +16,18 @@ class _NavBarState extends State<NavBar> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedScreen = index;
+      if (_selectedScreen == 1) {
+        Navigator.pushNamed(context, '~/menu');
+      } //else if (){
+
+      //}
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: _selectedScreen,
+      currentIndex: 0,
       selectedItemColor: AppColors.fullWhite,
       unselectedItemColor: AppColors.orangeLight,
       selectedLabelStyle: AppTextStyles.homeBarSelected,
