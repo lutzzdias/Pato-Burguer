@@ -24,7 +24,7 @@ class AppTextStyles {
     // Opacidade 80%
     fontSize: 14,
     fontWeight: FontWeight.w500,
-    color: const Color(0xFFFFFFFF),
+    color: const Color(0xFFFFFFFF).withOpacity(0.8),
   );
   static final homeNameBlack = GoogleFonts.roboto(
     fontSize: 24,
