@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pato_burguer/screens/login/alterar_senha.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_images.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
@@ -25,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
        child: Stack(
          alignment: AlignmentDirectional.topCenter,
         children: [
-          Image(image: AssetImage(AppImages.IconeAppUser)),
+          Image(image: AssetImage(AppImages.IconeAppUser), height: size.height * 0.25,),
          Center(
          child: Container(
            decoration: BoxDecoration(
@@ -85,7 +86,9 @@ class _LoginPageState extends State<LoginPage> {
                    child: TextButton(
                      style: TextButton.styleFrom(
                        primary: AppColors.text),
-                     onPressed: (){},
+                     onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => AlterarSenha()),
+                    );
+                     },
                       child:
                        Text('Esqueceu a senha ?')),
                  ),
