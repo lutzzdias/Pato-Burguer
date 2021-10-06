@@ -75,6 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                      border: OutlineInputBorder(),
                      labelText: 'Senha' 
                      ),
+                     obscureText: true,
                    ),
                ),
              ),
