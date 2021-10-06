@@ -18,7 +18,7 @@ import 'package:flutter/widgets.dart';
 class CustomIcons {
   CustomIcons._();
 
-  static const _kFontFam = 'Custom Icons';
+  static const _kFontFam = 'custom_icons';
   static const String? _kFontPkg = null;
 
   static const IconData icon_combo =
