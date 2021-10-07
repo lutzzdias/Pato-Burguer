@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/screens/contact/contact.dart';
 import 'package:pato_burguer/screens/home/home.dart';
 import 'package:pato_burguer/screens/menu/menu.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "~/": (context) => Home(),
         "~/menu": (context) => Menu(),
+        "~/contact": (context) => Contact(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Pato Burguer',

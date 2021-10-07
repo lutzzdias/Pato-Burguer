@@ -51,6 +51,16 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
     color: AppColors.text,
   );
+  static final salePercentage = GoogleFonts.roboto(
+    fontSize: 12,
+    fontWeight: FontWeight.w900,
+    color: AppColors.text,
+  );
+  static final saleText = GoogleFonts.roboto(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    color: AppColors.text,
+  );
   static final itemPrice = GoogleFonts.roboto(
     fontSize: 20,
     fontWeight: FontWeight.w700,
@@ -61,6 +71,9 @@ class AppTextStyles {
     fontSize: 15,
     fontWeight: FontWeight.w700,
     color: AppColors.text,
+    decoration: TextDecoration.lineThrough,
+    decorationThickness: 2,
+    decorationColor: Colors.red,
   );
   static final itemCifrao = GoogleFonts.roboto(
     fontSize: 10,
@@ -77,6 +90,9 @@ class AppTextStyles {
     fontSize: 8,
     fontWeight: FontWeight.w700,
     color: AppColors.text,
+    decoration: TextDecoration.lineThrough,
+    decorationThickness: 2,
+    decorationColor: Colors.red,
   );
   static final menuOption = GoogleFonts.roboto(
     fontSize: 18,
