@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:pato_burguer/screens/login/alterar_senha.dart';
 import 'package:pato_burguer/screens/login/login_page.dart';
+import 'package:pato_burguer/screens/login/welcome_page.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 void main() {
   runApp(const MyApp());

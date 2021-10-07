@@ -26,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
        child: Stack(
          alignment: AlignmentDirectional.topCenter,
         children: [
-          Image(image: AssetImage(AppImages.IconeAppUser), height: size.height * 0.25,),
+          //Image(image: AssetImage(AppImages.IconeAppUser), height: size.height * 0.25,),
          Center(
          child: Container(
            decoration: BoxDecoration(
@@ -114,6 +114,7 @@ class _LoginPageState extends State<LoginPage> {
            )
          ),
        ),
+       Image(image: AssetImage(AppImages.LogoPato2), height: size.height * 0.30,),
        ],)
      ),
    );

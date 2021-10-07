@@ -62,48 +62,50 @@ class _AlterarSenhaState extends State<AlterarSenha> {
           
        ),
      backgroundColor: AppColors.orangeDark,
-     body: Stack(children: [
-       Center(
-         child: Container(
-           height: size.height * 0.60,
-           width: size.width * 0.88,
-           decoration: BoxDecoration(
-           color: AppColors.white,
-           borderRadius: BorderRadius.all(Radius.circular(15)),
-            ),
-          child: Column(children: [
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 40, left: 21,right: 170),
-                  child: Text('Senha Atual', style: AppTextStyles.contactTitle),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 21, right: 21, top:6),
-              child: Column(
+     body: SingleChildScrollView(
+       child:
+     Stack(children: [
+       Padding(
+         padding: const EdgeInsets.only(top:30),
+         child: Center(
+           child: Container(
+             height: size.height * 0.60,
+             width: size.width * 0.88,
+             decoration: BoxDecoration(
+             color: AppColors.white,
+             borderRadius: BorderRadius.all(Radius.circular(15)),
+              ),
+            child: Column(children: [
+              Row(
                 children: [
-                  Container(
-                    height: size.height * 0.05,
-                    child: TextFormField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: '',
-                          suffixIcon: IconButton(
-                            onPressed: _toggle,
-                             icon: Icon(visibilidade ? Icons.visibility : Icons.visibility_off_outlined, color: AppColors.orangeDark),
-                             alignment: AlignmentDirectional.center,
-                             ),
-                        ),
-                        obscureText: !visibilidade,
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 40, left: 21,right: 170),
+                    child: Text('Senha Atual', style: AppTextStyles.contactTitle),
                   ),
                 ],
               ),
-            ),
-            Container(
-              child: Row(
+              Padding(
+                padding: const EdgeInsets.only(left: 21, right: 21),
+                child: Container(
+                  height: size.height * 0.05,
+                  child: TextFormField(
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                        contentPadding: EdgeInsets.all(6),
+                        border: OutlineInputBorder(),
+                        labelText: '',
+                        suffixIcon: IconButton(
+                          padding: EdgeInsets.only(bottom: 0.5, top: 0.5),
+                          onPressed: _toggle,
+                           icon: Icon(visibilidade ? Icons.visibility : Icons.visibility_off_outlined, color: AppColors.orangeDark),
+                           alignment: AlignmentDirectional.center,
+                           ),
+                      ),
+                      obscureText: !visibilidade,
+                    ),
+                ),
+              ),
+              Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(top: 4, left: 21,right: 170),
@@ -111,33 +113,29 @@ class _AlterarSenhaState extends State<AlterarSenha> {
                   ),
                 ],
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 21, right: 21, top:6),
-              child: Column(
-                children: [
-                  Container(
-                    height: size.height * 0.05,
-                    child: TextFormField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(color: AppColors.orangeDark)
-                          ),
-                          hoverColor: AppColors.orangeDark,
-                          suffixIcon: IconButton(
-                            onPressed: _toggle1,
-                             icon: Icon(visibilidade1 ? Icons.visibility : Icons.visibility_off_outlined, color: AppColors.orangeDark),
-                             alignment: AlignmentDirectional.center,
-                             ),
+              Padding(
+                padding: const EdgeInsets.only(left: 21, right: 21, top: 6),
+                child: Container(
+                  height: 30,
+                  child: TextFormField(
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                        contentPadding: EdgeInsets.all(6),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: AppColors.orangeDark)
                         ),
-                        obscureText: !visibilidade1,
+                        hoverColor: AppColors.orangeDark,
+                        suffixIcon: IconButton(
+                          padding: EdgeInsets.only(bottom: 0.5, top: 0.5),
+                          onPressed: _toggle1,
+                           icon: Icon(visibilidade1 ? Icons.visibility : Icons.visibility_off_outlined, color: AppColors.orangeDark),
+                           ),
                       ),
-                  ),
-                ],
+                      obscureText: !visibilidade1,
+                    ),
+                ),
               ),
-            ),
-            Container(
-              child: Row(
+              Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(top: 4, left: 21,right: 140),
@@ -145,57 +143,61 @@ class _AlterarSenhaState extends State<AlterarSenha> {
                   ),
                 ],
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 21, right: 21, top: 6),
-              child: Column(
-                children: [
-                  Container(
-                    height: size.height * 0.05,
-                    child: TextFormField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: '',
-                          suffixIcon: IconButton(
-                            onPressed: _toggle2,
-                             icon: Icon(visibilidade2 ? Icons.visibility : Icons.visibility_off_outlined, color: AppColors.orangeDark,),
-                             alignment: AlignmentDirectional.center,
-                             ),
-                        ),
-                        obscureText: !visibilidade2,
-                      ),
-                  ),
-                ],
-              ),
-            ),
-            InkWell(
-              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
-              },
-              child:
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Container(
-                        height: size.height*0.08,
-                        width: size.width*0.76,
-                        decoration: BoxDecoration(
-                          color: AppColors.orangeDark,
-                          borderRadius: BorderRadius.all(Radius.circular(8)),
+              Padding(
+                padding: const EdgeInsets.only(left: 21, right: 21, top: 6),
+                child: Column(
+                  children: [
+                    Container(
+                      height: size.height * 0.05,
+                      child: TextFormField(
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                            contentPadding: EdgeInsets.all(6),
+                            border: OutlineInputBorder(),
+                            labelText: '',
+                            suffixIcon: IconButton(
+                              padding: EdgeInsets.only(bottom: 0.5, top: 0.5),
+                              onPressed: _toggle2,
+                               icon: Icon(visibilidade2 ? Icons.visibility : Icons.visibility_off_outlined, color: AppColors.orangeDark,),
+                               alignment: AlignmentDirectional.center,
+                               ),
                           ),
-                          child: Center(child: Text('Salvar', style: AppTextStyles.buttons)),
+                          obscureText: !visibilidade2,
+                        ),
+                    ),
+                  ],
+                ),
+              ),
+              InkWell(
+                onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
+                },
+                child:
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 60),
+                        child: Container(
+                          height: size.height*0.08,
+                          width: size.width*0.76,
+                          decoration: BoxDecoration(
+                            color: AppColors.orangeDark,
+                            borderRadius: BorderRadius.all(Radius.circular(8)),
+                            ),
+                            child: Center(child: Text('Salvar', style: AppTextStyles.buttons)),
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),),
-          ],),
+                  ],
+                ),),
+            ],),
+           ),
          ),
        ),
      ],),
+     ),
    );
   }
 }
