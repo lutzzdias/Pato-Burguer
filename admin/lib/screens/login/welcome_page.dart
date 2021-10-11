@@ -63,9 +63,7 @@ class _WelcomePageState extends State<WelcomePage> {
                        decoration: BoxDecoration(
                          image: DecorationImage(
                            image: AssetImage(AppImages.Cardapio),
-                           alignment: AlignmentDirectional.centerEnd,
-                           scale: 4,
-                         ),
+                           alignment: AlignmentDirectional.bottomEnd),
                          color: Colors.white,
                          borderRadius: BorderRadius.all(Radius.circular(5)),
                         boxShadow: [

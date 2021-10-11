@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/screens/Alterar/alterar_cardapio.dart';
 import 'package:pato_burguer/screens/login/alterar_senha.dart';
 import 'package:pato_burguer/screens/login/login_page.dart';
 import 'package:pato_burguer/screens/login/welcome_page.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pato Burguer',
       theme: ThemeData(primaryColor: AppColors.white),
-      home: AlterarSenha(),
+      home: AlterarCardapio(),
     );
   }
 }
