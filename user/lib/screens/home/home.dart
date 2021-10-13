@@ -50,7 +50,7 @@ class Home extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 15,
               ),
               Container(
                 alignment: Alignment.topLeft,
@@ -92,7 +92,7 @@ class Home extends StatelessWidget {
                                       offset: Offset(-0.5, 1),
                                     ),
                                   ]),
-                              height: 100,
+                              height: 85,
                               width: MediaQuery.of(context).size.width / 2,
                               child: Align(
                                 alignment: Alignment.centerLeft,
@@ -153,8 +153,8 @@ class Home extends StatelessWidget {
                         ),
                       ]),
                       Positioned(
-                        left: MediaQuery.of(context).size.width / 2.8,
-                        top: -MediaQuery.of(context).size.height / 40,
+                        left: MediaQuery.of(context).size.width / 2.6,
+                        top: -MediaQuery.of(context).size.height / 25,
                         child: Image.asset(
                           AppImages.PatoBaconSolo,
                           scale: 2,
@@ -163,7 +163,7 @@ class Home extends StatelessWidget {
                     ]),
                   ),
                   Container(
-                    padding: EdgeInsets.only(top: 30),
+                    padding: EdgeInsets.only(top: 35),
                     child: Stack(clipBehavior: Clip.none, children: [
                       Stack(children: [
                         Padding(
@@ -184,7 +184,7 @@ class Home extends StatelessWidget {
                                       offset: Offset(-0.5, 1),
                                     ),
                                   ]),
-                              height: 100,
+                              height: 85,
                               width: MediaQuery.of(context).size.width / 2,
                               child: Align(
                                 alignment: Alignment.centerLeft,
@@ -245,8 +245,8 @@ class Home extends StatelessWidget {
                         ),
                       ]),
                       Positioned(
-                        left: MediaQuery.of(context).size.width / 2.8,
-                        top: -MediaQuery.of(context).size.height / 40,
+                        left: MediaQuery.of(context).size.width / 2.6,
+                        top: -MediaQuery.of(context).size.height / 25,
                         child: Image.asset(
                           AppImages.PatoBaconSolo,
                           scale: 2,
@@ -285,7 +285,7 @@ class Home extends StatelessWidget {
                         children: [
                           Icon(
                             CustomIcons.icon_burguer,
-                            size: 50,
+                            size: 60,
                             color: AppColors.orangeDark,
                           ),
                           Text(
@@ -321,7 +321,7 @@ class Home extends StatelessWidget {
                         children: [
                           Icon(
                             CustomIcons.icon_contact,
-                            size: 50,
+                            size: 60,
                             color: AppColors.orangeDark,
                           ),
                           Text(
