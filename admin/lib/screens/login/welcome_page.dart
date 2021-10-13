@@ -61,25 +61,31 @@ class _WelcomePageState extends State<WelcomePage> {
                        height: size.height * 0.09,
                        width: size.width * 0.7,
                        decoration: BoxDecoration(
-                         image: DecorationImage(
-                           image: AssetImage(AppImages.Cardapio),
-                           alignment: AlignmentDirectional.bottomEnd),
                          color: Colors.white,
                          borderRadius: BorderRadius.all(Radius.circular(5)),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 5,
-                            offset: Offset(0, 2)
+                            spreadRadius: 0.15,
+                            blurRadius: 1,
+                            offset: Offset(-0.5, 4),
                             ),
                           
                         ]
                          ),
-                       child: Center(child:
+                        child: Center(child:
                         Padding(
-                          padding: const EdgeInsets.only(right: 40),
-                          child: Text('Alterar Cardápio', style: AppTextStyles.homeButtonOrange),
+                          padding: const EdgeInsets.only(left: 22),
+                          child: Row(
+                            children: [
+                              Text('Alterar Cardápio', style: AppTextStyles.homeButtonOrange),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 38),
+                                child: Icon(Icons.restaurant_menu_rounded, color: AppColors.orangeDark, size: 38,
+                                ),
+                              )
+                            ],
+                          ),
                         )
                         ),
                      ),
@@ -89,28 +95,33 @@ class _WelcomePageState extends State<WelcomePage> {
                      child: Container(
                        height: size.height * 0.09,
                        width: size.width * 0.7,
+                       
                        decoration: BoxDecoration(
-                         image: DecorationImage(
-                           image: AssetImage(AppImages.Contato),
-                           alignment: AlignmentDirectional.centerEnd,
-                           scale: 4,
-                         ),
                          color: Colors.white,
                          borderRadius: BorderRadius.all(Radius.circular(5)),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 5,
-                            offset: Offset(0, 2)
+                            spreadRadius: 0.15,
+                            blurRadius: 1,
+                            offset: Offset(-0.5, 4),
                             ),
                           
                         ]
                          ),
                        child: Center(child:
                         Padding(
-                          padding: const EdgeInsets.only(right: 40),
-                          child: Text('Alterar Contato', style: AppTextStyles.homeButtonOrange),
+                          padding: const EdgeInsets.only(left: 22),
+                          child: Row(
+                            children: [
+                              Text('Alterar Contato', style: AppTextStyles.homeButtonOrange),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 45),
+                                child: Icon(Icons.phone, color: AppColors.orangeDark, size: 38,
+                                ),
+                              )
+                            ],
+                          ),
                         )
                         ),
                      ),
@@ -120,27 +131,31 @@ class _WelcomePageState extends State<WelcomePage> {
                        height: size.height * 0.09,
                        width: size.width * 0.7,
                        decoration: BoxDecoration(
-                         image: DecorationImage(
-                           image: AssetImage(AppImages.Config),
-                           alignment: AlignmentDirectional.centerEnd,
-                           scale: 4,
-                         ),
                          color: Colors.white,
                          borderRadius: BorderRadius.all(Radius.circular(5)),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 5,
-                            offset: Offset(0, 2)
+                            spreadRadius: 0.15,
+                            blurRadius: 1,
+                            offset: Offset(-0.5, 4),
                             ),
                           
                         ]
                          ),
                        child: Center(child:
                         Padding(
-                          padding: const EdgeInsets.only(right: 40),
-                          child: Text('Alterar Senha', style: AppTextStyles.homeButtonOrange),
+                          padding: const EdgeInsets.only(left: 22),
+                          child: Row(
+                            children: [
+                              Text('Alterar Senha', style: AppTextStyles.homeButtonOrange),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 60),
+                                child: Icon(Icons.password_outlined, color: AppColors.orangeDark, size: 38,
+                                ),
+                              )
+                            ],
+                          ),
                         )
                         ),
                      ),

@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pato Burguer',
       theme: ThemeData(primaryColor: AppColors.white),
-      home: AlterarCardapio(),
+      home: LoginPage(),
     );
   }
 }
