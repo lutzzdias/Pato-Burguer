@@ -18,7 +18,7 @@ class Item extends StatelessWidget {
             color: Colors.grey.withOpacity(.8),
             blurRadius: 2,
             spreadRadius: 0.25,
-            offset: Offset(0, 1.5),
+            offset: const Offset(0, 1.5),
           ),
         ],
       ),
@@ -30,7 +30,7 @@ class Item extends StatelessWidget {
                 width: double.infinity,
                 height: 60,
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(15),
                         topRight: Radius.circular(15)),
@@ -42,7 +42,7 @@ class Item extends StatelessWidget {
                 width: double.infinity,
                 height: 95,
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(15),
                         bottomRight: Radius.circular(15)),
