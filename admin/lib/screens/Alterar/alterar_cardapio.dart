@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/screens/login/welcome_page.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_images.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
+
+import 'item_adm.dart';
 
 class AlterarCardapio extends StatelessWidget {
   const AlterarCardapio({Key? key}) : super(key: key);
@@ -13,7 +16,7 @@ class AlterarCardapio extends StatelessWidget {
        appBar: AppBar(
        title: Padding(
          padding: const EdgeInsets.only(left: 40),
-         child: Text('Alterar Senha', style: AppTextStyles.appBar,),
+         child: Text('Alterar Cardápio', style: AppTextStyles.appBar,),
        ),
        backgroundColor: AppColors.orangeDark,
        shadowColor: AppColors.orangeDark,
@@ -21,7 +24,7 @@ class AlterarCardapio extends StatelessWidget {
        elevation: 0,
        leading: 
          IconButton(
-          onPressed: (){},
+          onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomePage()));},
           icon: Padding(
             padding: const EdgeInsets.only(left: 10),
             child: const Icon(Icons.arrow_back_ios),
@@ -32,7 +35,7 @@ class AlterarCardapio extends StatelessWidget {
        ),
        body: SingleChildScrollView(
          child: Stack(children: [
-           SizedBox(height: 80,),
+           SizedBox(height: 60,),
            Container(
              padding: EdgeInsets.all(1),
              height: MediaQuery.of(context).size.height*0.9,
@@ -49,38 +52,23 @@ class AlterarCardapio extends StatelessWidget {
                    width: 135,
                    height: 168,
                    child: GridView.count(
-                     padding: EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 0,
-                   ),
-                   crossAxisCount: 2,
-                   mainAxisSpacing: 20,
-                   crossAxisSpacing: 20,
-                   children: [
-                    Container(
-                      width: 134,
-                       height: 168,
-                       decoration: BoxDecoration(
-                         borderRadius: BorderRadius.all(Radius.circular(16)),
-                         color: AppColors.white,
-                         boxShadow: [ BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 5,
-                            offset: Offset(0, 2)
-                            ),
-                          ],
-                         ),
-                       child: Padding(
-                         padding: const EdgeInsets.only(bottom: 98),
-                         child: Container(
-                          decoration: BoxDecoration(
-                         borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16)),
-                         color: AppColors.orangeLight
-                         ),
-                         ),
-                       ),
-                     )
-                   ],
-                   ),
+            padding: const EdgeInsets.all(25),
+            crossAxisCount: 2,
+            mainAxisSpacing: 30,
+            crossAxisSpacing: 30,
+            childAspectRatio: 135 / 155,
+            children: [
+              Item(),
+              Item2(),
+              Item3(),
+              Item4(),
+              Item5(),
+              Item6(),
+              Item7(),
+              Item8(),
+              Item9(),
+            ],
+          ),
                        )
                  ),
              ),

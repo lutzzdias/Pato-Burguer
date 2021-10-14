@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pato_burguer/screens/login/alterar_senha.dart';
+import 'package:pato_burguer/screens/Alterar/alterar_senha.dart';
 import 'package:pato_burguer/screens/login/welcome_page.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_images.dart';
