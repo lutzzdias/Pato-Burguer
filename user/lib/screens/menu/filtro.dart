@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/database/firebase_menu.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
+import 'package:provider/provider.dart';
 
 class Filtro extends StatefulWidget {
   const Filtro({Key? key}) : super(key: key);
@@ -64,6 +66,10 @@ class _FiltroState extends State<Filtro> {
             ),
           ],
           onPressed: (int index) {
+            FirebaseMenu fireMenu =
+                Provider.of<FirebaseMenu>(context, listen: false);
+
+            fireMenu.getInfoFromFirebase;
             setState(() {
               for (int buttonIndex = 0;
                   buttonIndex < isSelected.length;
