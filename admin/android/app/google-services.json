@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "919641479699",
+    "firebase_url": "https://pato-burguer-16a4e-default-rtdb.firebaseio.com",
     "project_id": "pato-burguer-16a4e",
     "storage_bucket": "pato-burguer-16a4e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:919641479699:android:39a313da95f383a8203de6",
+        "mobilesdk_app_id": "1:919641479699:android:83984a5b050183c0203de6",
         "android_client_info": {
           "package_name": "com.patoburguer.admin"
         }
