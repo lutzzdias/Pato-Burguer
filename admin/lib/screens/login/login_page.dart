@@ -115,10 +115,10 @@ class _LoginPageState extends State<LoginPage> {
                          border: OutlineInputBorder(),
                          labelText: 'Usuário',
                          ),
-                         keyboardType: TextInputType.name,
+                         keyboardType: TextInputType.emailAddress,
                          validator: (value){
                              if(value!.isEmpty){
-                               return 'Informe o usuário corretamente!';
+                               return 'Informe o email corretamente!';
                              }
                              return null;
                          },
