@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/screens/menu/item.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
-import 'package:pato_burguer/shared/themes/app_images.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
 
 class ItemDesign extends StatelessWidget {
-  const ItemDesign({Key? key}) : super(key: key);
+  final Item item;
+
+  const ItemDesign({Key? key, required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,14 +62,14 @@ class ItemDesign extends StatelessWidget {
                   height: 90,
                   width: 150,
                   child: Image.asset(
-                    AppImages.PatoBaconSolo,
+                    ('assets/images/' + item.nomeImagem + '.png'),
                     alignment: Alignment.topCenter,
                     fit: BoxFit.fill,
                   ),
                 ),
               ),
               Text(
-                "NomeDoHamburguer",
+                item.nome,
                 style: AppTextStyles.itemName,
               ),
               RichText(
@@ -76,7 +78,7 @@ class ItemDesign extends StatelessWidget {
                     style: AppTextStyles.itemCifrao,
                     children: [
                       TextSpan(
-                        text: "0,00",
+                        text: item.preco.toString(),
                         style: AppTextStyles.itemPrice,
                       ),
                     ]),
@@ -87,12 +89,4 @@ class ItemDesign extends StatelessWidget {
       ),
     );
   }
-
-  /*factory Item.fromJson(Map<String, dynamic> json) {
-
-    return Item(
-      nome: 
-    )
-  }*/
-
 }

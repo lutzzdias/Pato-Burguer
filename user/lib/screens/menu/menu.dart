@@ -14,7 +14,7 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FirebaseMenu fireMenu = Provider.of<FirebaseMenu>(context, listen: false);
-    List<Item> itens = fireMenu.getLanches();
+    List<Item> itens = fireMenu.getCombos();
     int numItens = itens.length;
 
     return Scaffold(
@@ -68,7 +68,7 @@ class Menu extends StatelessWidget {
             ),
             itemCount: numItens,
             itemBuilder: (context, index) {
-              return ItemDesign();
+              return ItemDesign(item: itens[index]);
             },
           ),
         ],

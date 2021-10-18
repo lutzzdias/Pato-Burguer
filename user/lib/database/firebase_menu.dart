@@ -59,7 +59,7 @@ class FirebaseMenu {
     DocumentSnapshot lanchesPrint = await pato.doc('lanches').get();
 
     // guarda os dados do print tirado como Map na variável dados
-    var dadosLanches = lanchesPrint.data as Map;
+    var dadosLanches = lanchesPrint.data() as Map;
 
     // cria uma lista de elementos dinâmicos com os dados obtidos do documento e guardados na variável dados
     var lanchesDados = dadosLanches['lanches'] as List<dynamic>;
@@ -72,7 +72,7 @@ class FirebaseMenu {
     DocumentSnapshot bebidasPrint = await pato.doc('bebidas').get();
 
     // guarda os dados do print tirado como Map na variável dados
-    var dadosBebidas = bebidasPrint.data as Map;
+    var dadosBebidas = bebidasPrint.data() as Map;
 
     // cria uma lista de elementos dinâmicos com os dados obtidos do documento e guardados na variável dados
     var bebidasDados = dadosBebidas['bebidas'] as List<dynamic>;
@@ -85,7 +85,7 @@ class FirebaseMenu {
     DocumentSnapshot combosPrint = await pato.doc('combos').get();
 
     // guarda os dados do print tirado como Map na variável dados
-    var dadosCombos = combosPrint.data as Map;
+    var dadosCombos = combosPrint.data() as Map;
 
     // cria uma lista de elementos dinâmicos com os dados obtidos do documento e guardados na variável dados
     var combosDados = dadosCombos['combos'] as List<dynamic>;

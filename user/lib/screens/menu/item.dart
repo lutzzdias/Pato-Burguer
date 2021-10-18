@@ -1,27 +1,25 @@
-import 'dart:ui';
-
 class Item {
-  String? nome;
-  String? desc;
-  String? nomeImagem;
-  num? preco;
-  bool? promocao;
+  String desc;
+  String nome;
+  String nomeImagem;
+  double preco;
+  bool promocao;
 
   Item({
-    this.nome,
-    this.desc,
-    this.nomeImagem,
-    this.preco,
-    this.promocao,
+    required this.desc,
+    required this.nome,
+    required this.nomeImagem,
+    required this.preco,
+    required this.promocao,
   });
 
   factory Item.fromJson(Map<String, dynamic> json) {
     return Item(
-      nome: json['nome'],
       desc: json['desc'],
+      nome: json['nome'],
       nomeImagem: json['nomeImagem'],
-      preco: num.parse(json['preco']),
-      promocao: bool.fromEnvironment(json['promocao']),
+      preco: (json['preco']).toDouble(),
+      promocao: json['promocao'],
     );
   }
 }
