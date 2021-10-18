@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pato_burguer/screens/Alterar/alterar_cardapio.dart';
 import 'package:pato_burguer/screens/Alterar/alterar_senha.dart';
+import 'package:pato_burguer/services/auth_service.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_images.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
+import 'package:provider/provider.dart';
 
 class WelcomePage extends StatefulWidget  {
   WelcomePage({Key? key}) : super(key: key);
@@ -174,7 +176,44 @@ class _WelcomePageState extends State<WelcomePage> {
                          ),
                        ),
                      ),
-           
+                                         Padding(
+                       padding: const EdgeInsets.only(top: 30),
+                       child: InkWell(
+                        hoverColor: AppColors.white,
+                         onTap: () => context.read<AuthService>().logout(),
+                         child: Container(
+                           height: size.height * 0.09,
+                           width: size.width * 0.7,
+                           decoration: BoxDecoration(
+                             color: Colors.white,
+                             borderRadius: BorderRadius.all(Radius.circular(5)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 0.15,
+                                blurRadius: 1,
+                                offset: Offset(-0.5, 4),
+                                ),
+                            ]
+                             ),
+                           child: Center(child:
+                            Padding(
+                              padding: const EdgeInsets.only(left: 22),
+                              child: Row(
+                                children: [
+                                  Text('Sair', style: AppTextStyles.homeButtonOrange),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 145),
+                                    child: Icon(Icons.exit_to_app_rounded, color: AppColors.orangeDark, size: 38,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+                            ),
+                         ),
+                       ),
+                     ),
                    ],
                  ),
                ),
