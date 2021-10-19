@@ -140,4 +140,14 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
     color: AppColors.orangeDark,
   );
+  static final NomeAlteravel = GoogleFonts.roboto(
+    fontSize: 24,
+    fontWeight: FontWeight.w700,
+    color: Color.fromRGBO(137, 137, 137, 1),
+  );
+    static final NomeAlteravel2 = GoogleFonts.roboto(
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: Color.fromRGBO(137, 137, 137, 1),
+  );
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/screens/Alterar/alterar_item.dart';
 import 'package:pato_burguer/screens/login/login_page.dart';
 import 'package:pato_burguer/screens/login/welcome_page.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
@@ -14,7 +15,7 @@ class MeuAplicativo extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber
       ),
-      home: AuthCheck()
+      home: AlterarItem()
     );
   }
 }
