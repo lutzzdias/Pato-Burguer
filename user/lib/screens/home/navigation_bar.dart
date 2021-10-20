@@ -11,23 +11,23 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  int _selectedScreen = 0;
+  int _selectedScreen = 1;
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedScreen = index;
-      if (_selectedScreen == 1) {
+      if (_selectedScreen == 2) {
         Navigator.pushNamed(context, '~/menu');
-      } //else if (){
-
-      //}
+      } else if (_selectedScreen == 0) {
+        Navigator.pushNamed(context, '~/contact');
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: 0,
+      currentIndex: 1,
       selectedItemColor: AppColors.fullWhite,
       unselectedItemColor: AppColors.orangeLight,
       selectedLabelStyle: AppTextStyles.homeBarSelected,
@@ -39,20 +39,16 @@ class _NavBarState extends State<NavBar> {
       backgroundColor: AppColors.orangeDark,
       items: [
         BottomNavigationBarItem(
+          icon: Icon(CustomIcons.icon_contact),
+          label: 'Contato',
+        ),
+        BottomNavigationBarItem(
           icon: Icon(CustomIcons.icon_home),
           label: 'Home',
         ),
         BottomNavigationBarItem(
           icon: Icon(CustomIcons.icon_burguer),
-          label: 'Lanches',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(CustomIcons.icon_drink),
-          label: 'Bebidas',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(CustomIcons.icon_combo),
-          label: 'Combos',
+          label: 'Cardápio',
         ),
       ],
     );
