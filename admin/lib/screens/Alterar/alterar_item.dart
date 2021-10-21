@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/screens/Alterar/alterar_cardapio.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_images.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
@@ -22,7 +23,7 @@ class AlterarItem extends StatelessWidget {
        elevation: 0,
        leading: 
          IconButton(
-          onPressed: (){},
+          onPressed: (){{Navigator.push(context, MaterialPageRoute(builder: (context) => AlterarCardapio()));}},
           icon: Padding(
             padding: const EdgeInsets.only(left: 10),
             child: const Icon(Icons.arrow_back_ios),
