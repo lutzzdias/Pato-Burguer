@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/screens/menu/item.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_images.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
 
 class PromocaoDesign extends StatelessWidget {
-  const PromocaoDesign({Key? key}) : super(key: key);
+  final Item item;
+
+  const PromocaoDesign({Key? key, required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 35),
       child: Stack(clipBehavior: Clip.none, children: [
         Stack(children: [
           Padding(
@@ -39,7 +41,7 @@ class PromocaoDesign extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
-                        "Nome do Hambúrguer",
+                        item.nome,
                         style: AppTextStyles.itemName,
                         textAlign: TextAlign.left,
                       ),
@@ -49,7 +51,7 @@ class PromocaoDesign extends StatelessWidget {
                       RichText(
                         textAlign: TextAlign.left,
                         text: TextSpan(
-                          text: "20% ",
+                          text: item.desconto.toString() + "% ",
                           style: AppTextStyles.salePercentage,
                           children: <TextSpan>[
                             TextSpan(
@@ -68,7 +70,7 @@ class PromocaoDesign extends StatelessWidget {
                           style: AppTextStyles.itemCifraoHome,
                           children: <TextSpan>[
                             TextSpan(
-                              text: "0,00 ",
+                              text: item.preco.toString() + " ",
                               style: AppTextStyles.itemPrice,
                             ),
                             TextSpan(
@@ -76,7 +78,7 @@ class PromocaoDesign extends StatelessWidget {
                               style: AppTextStyles.itemCifraoSale,
                             ),
                             TextSpan(
-                              text: "0,00",
+                              text: item.precoAntigo.toString(),
                               style: AppTextStyles.itemPriceSale,
                             )
                           ],
@@ -90,11 +92,16 @@ class PromocaoDesign extends StatelessWidget {
           ),
         ]),
         Positioned(
-          left: MediaQuery.of(context).size.width / 2.6,
-          top: -MediaQuery.of(context).size.height / 25,
-          child: Image.asset(
-            AppImages.PatoBaconSolo,
-            scale: 2,
+          left: MediaQuery.of(context).size.width / 2.5,
+          top: -MediaQuery.of(context).size.height / 30,
+          child: Container(
+            alignment: Alignment.center,
+            height: MediaQuery.of(context).size.height / 4.7,
+            child: Image.asset(
+              'assets/images/' + item.nomeImagem + '.png',
+              scale: 2,
+              fit: BoxFit.fitHeight,
+            ),
           ),
         ),
       ]),
