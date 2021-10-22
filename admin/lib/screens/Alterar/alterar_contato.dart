@@ -1,21 +1,36 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:pato_burguer/database/firebase_menu.dart';
+import 'package:pato_burguer/screens/login/welcome_page.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
 import 'package:pato_burguer/shared/themes/redes_sociais_icon.dart';
 import 'package:provider/provider.dart';
 
-class AlterarContato extends StatelessWidget {
+class AlterarContato extends StatefulWidget {
   const AlterarContato({Key? key}) : super(key: key);
 
-updateData(){
-  CollectionReference contatos = FirebaseFirestore.instance.collection('patoBurguer');
+  @override
+  _AlterarContatoState createState() => _AlterarContatoState();
+}
 
-  Future<void> updateContatos(){
+class _AlterarContatoState extends State<AlterarContato> {
+  final RuaController = TextEditingController();
+
+    @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    RuaController.dispose();
+    super.dispose();
+  }
+  
+ updateData(){
+  CollectionReference contatos = FirebaseFirestore.instance.collection('patoBurguer');
+  Future<void> updateData(){
+    print('Ola');
     return contatos
     .doc('contato')
-    .update({'cidade': 90210})
+    .update({'contato.rua': RuaController.text})
     .then((value) => print("User Updated"))
     .catchError((error) => print("Failed to update user: $error"));
 }
@@ -34,9 +49,7 @@ updateData(){
           centerTitle: true,
           backgroundColor: AppColors.orangeDark,
           leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
+            onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomePage()));},
             icon: const Icon(
               Icons.arrow_back_ios,
               color: AppColors.white,
@@ -86,6 +99,7 @@ updateData(){
                   alignment: Alignment.topLeft,
                   padding: EdgeInsets.only(left: 25, bottom: 20, right: 25),
                   child: TextFormField(
+                    controller: RuaController,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
                       contentPadding: EdgeInsets.all(6),
@@ -376,7 +390,7 @@ updateData(){
                   Padding(
                         padding: const EdgeInsets.only(bottom: 10, top: 30),
                         child: InkWell(
-                          onTap: (){},
+                          onTap: updateData(),
                           child: Container(
                               height: size.height*0.08,
                               width: size.width*0.76,

@@ -36,5 +36,7 @@ class AppImages {
   static const bare = "assets/images/bare.png";
   static const guaravita = "assets/images/guaravita.png";
   static const PepsiTwist = "assets/images/pepsi.png";
+  static const SucoDeUva = "assets/images/sucodeuva.png";
+  static const SucoDeLaranja = "assets/images/sucodelaranja.png";
 
 }

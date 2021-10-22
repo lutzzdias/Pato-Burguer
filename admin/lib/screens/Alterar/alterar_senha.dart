@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pato_burguer/screens/login/login_page.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
+import 'package:pato_burguer/widgets/auth_check.dart';
 
 
 class AlterarSenha extends StatefulWidget  {
@@ -49,7 +50,7 @@ class _AlterarSenhaState extends State<AlterarSenha> {
        leading: 
          IconButton(
           onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),
+            Navigator.push(context, MaterialPageRoute(builder: (context) => AuthCheck()),
             );
           },
           icon: Padding(

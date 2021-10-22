@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pato_burguer/screens/Alterar/alterar_cardapio.dart';
+import 'package:pato_burguer/screens/Alterar/alterar_contato.dart';
 import 'package:pato_burguer/screens/Alterar/alterar_senha.dart';
 import 'package:pato_burguer/services/auth_service.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
@@ -58,53 +59,54 @@ class _WelcomePageState extends State<WelcomePage> {
           
           InkWell(
                 hoverColor: AppColors.white,
-                onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => AlterarCardapio())
-                );
-                },
+                onTap: (){},
              child: Container(
                child: Center(
                  child: Column(
                    children: [
                      Padding(
                        padding: const EdgeInsets.only(top: 200),
-                       child: Container(
-                         height: size.height * 0.09,
-                         width: size.width * 0.7,
-                         decoration: BoxDecoration(
-                           color: Colors.white,
-                           borderRadius: BorderRadius.all(Radius.circular(5)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 0.15,
-                              blurRadius: 1,
-                              offset: Offset(-0.5, 4),
+                       child: InkWell(
+                      onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => AlterarCardapio())); },
+                         child: Container(
+                           height: size.height * 0.09,
+                           width: size.width * 0.7,
+                           decoration: BoxDecoration(
+                             color: Colors.white,
+                             borderRadius: BorderRadius.all(Radius.circular(5)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 0.15,
+                                blurRadius: 1,
+                                offset: Offset(-0.5, 4),
+                                ),
+                              
+                            ]
+                             ),
+                            child: Center(child:
+                            Padding(
+                              padding: const EdgeInsets.only(left: 22),
+                              child: Row(
+                                children: [
+                                  Text('Alterar Cardápio', style: AppTextStyles.homeButtonOrange),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 38),
+                                    child: Icon(Icons.restaurant_menu_rounded, color: AppColors.orangeDark, size: 38,
+                                    ),
+                                  )
+                                ],
                               ),
-                            
-                          ]
-                           ),
-                          child: Center(child:
-                          Padding(
-                            padding: const EdgeInsets.only(left: 22),
-                            child: Row(
-                              children: [
-                                Text('Alterar Cardápio', style: AppTextStyles.homeButtonOrange),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 38),
-                                  child: Icon(Icons.restaurant_menu_rounded, color: AppColors.orangeDark, size: 38,
-                                  ),
-                                )
-                              ],
+                            )
                             ),
-                          )
-                          ),
-                     ),
+                                            ),
+                       ),
                      ),
                      Padding(
                        padding: const EdgeInsets.only(top: 30),
                        child: InkWell(
                         hoverColor: AppColors.white,
-                        onTap: (){},
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => AlterarContato()));},
                          child: Container(
                            height: size.height * 0.09,
                            width: size.width * 0.7,
