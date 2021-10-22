@@ -27,7 +27,7 @@ class MeuAplicativo extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber
       ),
-      home: WelcomePage()
+      home: AuthCheck()
     );
   }
 }
