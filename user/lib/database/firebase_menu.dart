@@ -3,6 +3,7 @@ import 'package:pato_burguer/screens/menu/item.dart';
 
 class FirebaseMenu {
   FirebaseFirestore? _instance;
+
   List<Item> _lanches = [];
   List<Item> getLanches() {
     return _lanches;
@@ -20,6 +21,65 @@ class FirebaseMenu {
 
   List<Item> _promocoes = [];
   List<Item> getPromocoes() {
+    return _promocoes;
+  }
+
+  String _rua = "";
+  String getRua() {
+    return _rua;
+  }
+
+  String _cidade = "";
+  String getCidade() {
+    return _cidade;
+  }
+
+  String _semanaNome = "";
+  String getSemanaNome() {
+    return _semanaNome;
+  }
+
+  String _semanaHorario = "";
+  String getSemanaHorario() {
+    return _semanaHorario;
+  }
+
+  String _sabNome = "";
+  String getSabNome() {
+    return _sabNome;
+  }
+
+  String _sabHorario = "";
+  String getSabHorario() {
+    return _sabHorario;
+  }
+
+  String _domNome = "";
+  String getDomNome() {
+    return _domNome;
+  }
+
+  String _domHorario = "";
+  String getDomHorario() {
+    return _domHorario;
+  }
+
+  String _numCelular = "";
+  String getNumCelular() {
+    return _numCelular;
+  }
+
+  String _facebook = "";
+  String getFacebook() {
+    return _facebook;
+  }
+
+  String _instagram = "";
+  String getInstagram() {
+    return _instagram;
+  }
+
+  Future<void> setPromocoes() async {
     int i;
     for (i = 0; i < _lanches.length; i++) {
       if (_lanches[i].promocao == true) {
@@ -44,8 +104,6 @@ class FirebaseMenu {
         continue;
       }
     }
-
-    return _promocoes;
   }
 
   Future<void> getInfoFromFirebase() async {
@@ -95,6 +153,24 @@ class FirebaseMenu {
       _combos.add(Item.fromJson(combo));
     });
 
-    getPromocoes();
+    setPromocoes();
+
+    DocumentSnapshot contatoPrint = await pato.doc('contato').get();
+
+    var dadosContatos = contatoPrint.data() as Map;
+
+    var contatosDados = dadosContatos['contato'] as Map;
+
+    _rua = contatosDados['rua'];
+    _cidade = contatosDados['cidade'];
+    _semanaNome = contatosDados['segNome'];
+    _semanaHorario = contatosDados['segHora'];
+    _sabNome = contatosDados['sabNome'];
+    _sabHorario = contatosDados['sabHora'];
+    _domNome = contatosDados['domNome'];
+    _domHorario = contatosDados['domHora'];
+    _numCelular = contatosDados['numCelular'];
+    _facebook = contatosDados['facebook'];
+    _instagram = contatosDados['instagram'];
   }
 }
