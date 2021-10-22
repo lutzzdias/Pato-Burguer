@@ -37,14 +37,18 @@ class SplashScreen extends StatelessWidget {
               child: SizedBox(
                 height: 200,
                 width: 200,
-                child: Image.asset(AppImages.LogoPato2, fit: BoxFit.fitHeight),
+                child: Align(
+                  alignment: Alignment.center,
+                  child:
+                      Image.asset(AppImages.LogoPato2, fit: BoxFit.fitHeight),
+                ),
               ),
             ),
             Align(
               alignment: Alignment.center,
               child: SizedBox(
-                width: 225,
-                height: 225,
+                width: 200,
+                height: 200,
                 child: CircularProgressIndicator(
                   strokeWidth: 5,
                   valueColor: AlwaysStoppedAnimation<Color>(
