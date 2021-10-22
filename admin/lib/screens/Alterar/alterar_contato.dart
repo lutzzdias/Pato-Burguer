@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:pato_burguer/database/firebase_menu.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
@@ -11,7 +12,7 @@ class AlterarContato extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FirebaseMenu fireMenu = Provider.of<FirebaseMenu>(context, listen: false);
-
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.orangeDark,
       appBar: PreferredSize(
@@ -35,224 +36,350 @@ class AlterarContato extends StatelessWidget {
           ),
         ),
       ),
-      body: Stack(
-        children: [
-          Container(
-            // padding: EdgeInsets.all(10),
-            height: MediaQuery.of(context).size.height * 0.9,
-            width: double.infinity,
-            color: Colors.transparent,
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15.0),
-                  topRight: Radius.circular(15.0),
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Container(
+              // padding: EdgeInsets.all(10),
+              height: MediaQuery.of(context).size.height * 1,
+              width: double.infinity,
+              color: Colors.transparent,
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15.0),
+                    topRight: Radius.circular(15.0),
+                  ),
                 ),
               ),
             ),
-          ),
-          Column(
-            children: [
-              Container(
-                alignment: Alignment.topLeft,
-                padding: EdgeInsets.only(
-                  left: 30,
-                  top: 15,
-                  bottom: 7,
+            Column(
+              children: [
+                Container(
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(
+                    left: 30,
+                    top: 15,
+                    bottom: 7,
+                  ),
+                  child: Text(
+                    "Endereço: ",
+                    style: AppTextStyles.contactTitle,
+                  ),
                 ),
-                child: Text(
-                  "Endereço: ",
-                  style: AppTextStyles.contactTitle,
+                Container(
+                  height: size.height * 0.08,
+                  width: size.height * 0.6,
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(left: 25, bottom: 20, right: 25),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                      contentPadding: EdgeInsets.all(6),
+                      border: OutlineInputBorder(),
+                      labelText: fireMenu.getRua(), fillColor: AppColors.orangeLight,
+                      labelStyle: AppTextStyles.LabelContato,
+                      suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
+                    ),
+                  )
                 ),
-              ),
-              Container(
-                alignment: Alignment.topLeft,
-                padding: EdgeInsets.only(left: 30),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    labelText: fireMenu.getRua(), fillColor: AppColors.orangeLight,
-                    suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
-                  ),
-                )
-              ),
-              Container(
-                alignment: Alignment.topLeft,
-                padding: EdgeInsets.only(left: 30, bottom: 20),
-                child: Text(
-                  fireMenu.getCidade(),
-                  style: AppTextStyles.contactDetail,
+                Container(
+                  height: size.height * 0.08,
+                  width: size.height * 0.6,
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(left: 25, bottom: 20, right: 25),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                      contentPadding: EdgeInsets.all(6),
+                      border: OutlineInputBorder(),
+                      labelText: fireMenu.getCidade(), fillColor: AppColors.orangeLight,
+                      labelStyle: AppTextStyles.LabelContato,
+                      suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
+                    ),
+                  )
                 ),
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      color: AppColors.line,
-                      height: 1,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        color: AppColors.line,
+                        height: 1,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              Container(
-                alignment: Alignment.topLeft,
-                padding: EdgeInsets.only(
-                  left: 30,
-                  top: 15,
-                  bottom: 7,
+                  ],
                 ),
-                child: Text(
-                  "Horários de Funcionamento: ",
-                  style: AppTextStyles.contactTitle,
+                Container(
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(
+                    left: 30,
+                    top: 15,
+                    bottom: 7,
+                  ),
+                  child: Text(
+                    "Horários de Funcionamento: ",
+                    style: AppTextStyles.contactTitle,
+                  ),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(left: 30),
-                    child: Text(
-                      fireMenu.getSemanaNome(),
-                      style: AppTextStyles.contactText,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      height: size.height * 0.06,
+                      width: size.height * 0.3,
+                      alignment: Alignment.topLeft,
+                      padding: EdgeInsets.only(left: 25, bottom: 10),
+                      child: TextFormField(
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                      contentPadding: EdgeInsets.all(6),
+                      border: OutlineInputBorder(),
+                      labelText: fireMenu.getSemanaNome(), fillColor: AppColors.orangeLight, hoverColor: AppColors.orangeLight,
+                      labelStyle: AppTextStyles.LabelContato,
+                      suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
                     ),
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(right: 30),
-                    child: Text(
-                      fireMenu.getSemanaHorario(),
-                      style: AppTextStyles.contactDetail,
+                  )
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(left: 30),
-                    child: Text(
-                      fireMenu.getSabNome(),
-                      style: AppTextStyles.contactText,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Container(
+                        height: size.height * 0.06,
+                        width: size.height * 0.2,
+                        alignment: Alignment.topLeft,
+                        padding: EdgeInsets.only(bottom: 10, right: 10),
+                        child: TextFormField(
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                      contentPadding: EdgeInsets.all(6),
+                      border: OutlineInputBorder(),
+                      labelText: fireMenu.getSemanaHorario(), fillColor: AppColors.orangeLight,
+                      labelStyle: AppTextStyles.LabelContato,
+                      suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
                     ),
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(right: 30),
-                    child: Text(
-                      fireMenu.getSabHorario(),
-                      style: AppTextStyles.contactDetail,
+                  )
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(left: 30),
-                    child: Text(fireMenu.getDomNome(),
-                        style: AppTextStyles.contactText),
-                  ),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(right: 30),
-                    child: Text(
-                      fireMenu.getDomHorario(),
-                      style: AppTextStyles.contactDetail,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      color: AppColors.line,
-                      height: 1,
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                alignment: Alignment.topLeft,
-                padding: EdgeInsets.only(
-                  left: 30,
-                  top: 15,
-                  bottom: 10,
+                  ],
                 ),
-                child: Text(
-                  "Faça seu pedido em: ",
-                  style: AppTextStyles.contactTitle,
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      height: size.height * 0.06,
+                      width: size.height * 0.3,
+                      alignment: Alignment.topLeft,
+                      padding: EdgeInsets.only(left: 25, bottom: 10),
+                      child: TextFormField(
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                      contentPadding: EdgeInsets.all(6),
+                      border: OutlineInputBorder(),
+                      labelText: fireMenu.getSabNome(), fillColor: AppColors.orangeLight, hoverColor: AppColors.orangeLight,
+                      labelStyle: AppTextStyles.LabelContato,
+                      suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
+                    ),
+                  )
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Container(
+                        height: size.height * 0.06,
+                        width: size.height * 0.2,
+                        alignment: Alignment.topLeft,
+                        padding: EdgeInsets.only(bottom: 10, right: 10),
+                        child: TextFormField(
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                      contentPadding: EdgeInsets.all(6),
+                      border: OutlineInputBorder(),
+                      labelText: fireMenu.getSabHorario(), fillColor: AppColors.orangeLight,
+                      labelStyle: AppTextStyles.LabelContato,
+                      suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
+                    ),
+                  )
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              Row(
-                children: [
-                  Container(
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      height: size.height * 0.06,
+                      width: size.height * 0.3,
+                      alignment: Alignment.topLeft,
+                      padding: EdgeInsets.only(left: 25, bottom: 10),
+                      child: TextFormField(
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                      contentPadding: EdgeInsets.all(6),
+                      border: OutlineInputBorder(),
+                      labelText: fireMenu.getDomNome(), fillColor: AppColors.orangeLight, hoverColor: AppColors.orangeLight,
+                      labelStyle: AppTextStyles.LabelContato,
+                      suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
+                    ),
+                  )
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Container(
+                        height: size.height * 0.06,
+                        width: size.height * 0.2,
+                        alignment: Alignment.topLeft,
+                        padding: EdgeInsets.only(bottom: 10, right: 10),
+                        child: TextFormField(
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                      contentPadding: EdgeInsets.all(6),
+                      border: OutlineInputBorder(),
+                      labelText: fireMenu.getDomHorario(), fillColor: AppColors.orangeLight,
+                      labelStyle: AppTextStyles.LabelContato,
+                      suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
+                    ),
+                  )
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        color: AppColors.line,
+                        height: 1,
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(
+                    left: 30,
+                    top: 15,
+                    bottom: 5,
+                  ),
+                  child: Text(
+                    "Faça seu pedido em: ",
+                    style: AppTextStyles.contactTitle,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Container(
                     padding: EdgeInsets.only(left: 30, right: 5),
                     child: Icon(
                       RedesSociais.whatsapp,
                       color: AppColors.orangeMedium,
                     ),
                   ),
-                  Text(
-                    fireMenu.getNumCelular(),
-                    style: AppTextStyles.contactInfo,
-                  ),
-                ],
-              ),
-              Container(
-                alignment: Alignment.topLeft,
-                padding: EdgeInsets.only(
-                  left: 30,
-                  top: 20,
-                  bottom: 10,
-                ),
-                child: Text(
-                  "Redes Sociais: ",
-                  style: AppTextStyles.contactTitle,
-                ),
-              ),
-              Row(
-                children: [
                   Container(
+                    height: size.height * 0.05,
+                  width: size.height * 0.50,
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(left: 25, bottom: 0, right: 25),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                      contentPadding: EdgeInsets.all(6),
+                      border: OutlineInputBorder(),
+                      labelText: fireMenu.getNumCelular(), fillColor: AppColors.orangeLight,
+                      labelStyle: AppTextStyles.LabelContato,
+                      suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
+                    ),
+                  )
+                  ),
+                  ],
+                ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(
+                    left: 30,
+                    top: 10,
+                    bottom: 10,
+                  ),
+                  child: Text(
+                    "Redes Sociais: ",
+                    style: AppTextStyles.contactTitle,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Container(
                     padding: EdgeInsets.only(left: 30, right: 5),
                     child: Icon(
                       RedesSociais.facebook_square,
                       color: AppColors.orangeMedium,
                     ),
                   ),
-                  Text(
-                    fireMenu.getFacebook(),
-                    style: AppTextStyles.contactInfo,
-                  ),
-                ],
-              ),
-              SizedBox(height: 7),
-              Row(
-                children: [
                   Container(
+                    height: size.height * 0.05,
+                  width: size.height * 0.50,
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(left: 25, bottom: 5, right: 25),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                      contentPadding: EdgeInsets.all(6),
+                      border: OutlineInputBorder(),
+                      labelText: fireMenu.getFacebook(), fillColor: AppColors.orangeLight,
+                      labelStyle: AppTextStyles.LabelContato,
+                      suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
+                    ),
+                  )
+                  ),
+                  ],
+                ),
+                SizedBox(height: 7),
+                Row(
+                  children: [
+                    Container(
                     padding: EdgeInsets.only(left: 30, right: 5),
                     child: Icon(
                       RedesSociais.instagram,
                       color: AppColors.orangeMedium,
                     ),
                   ),
-                  Text(
-                    fireMenu.getInstagram(),
-                    style: AppTextStyles.contactInfo,
+                  Container(
+                    height: size.height * 0.05,
+                  width: size.height * 0.50,
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(left: 25, bottom: 5, right: 25),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
+                      contentPadding: EdgeInsets.all(6),
+                      border: OutlineInputBorder(),
+                      labelText: fireMenu.getInstagram(), fillColor: AppColors.orangeLight,
+                      labelStyle: AppTextStyles.LabelContato,
+                      suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
+                    ),
+                  )
                   ),
-                ],
-              ),
-            ],
-          ),
-        ],
+                  ],
+                ),
+                  Padding(
+                        padding: const EdgeInsets.only(bottom: 10, top: 30),
+                        child: InkWell(
+                          onTap: (){},
+                          child: Container(
+                              height: size.height*0.08,
+                              width: size.width*0.76,
+                              decoration: BoxDecoration(
+                                color: AppColors.orangeDark,
+                                borderRadius: BorderRadius.all(Radius.circular(8)),
+                                ),
+                                child: Center(child: Text('Salvar', style: AppTextStyles.buttons)),
+                            ),
+                        ),
+                      ),    
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

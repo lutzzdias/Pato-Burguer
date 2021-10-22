@@ -150,4 +150,9 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
     color: Color.fromRGBO(137, 137, 137, 1),
   );
+      static final LabelContato = GoogleFonts.roboto(
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: AppColors.orangeLight,
+  );
 }
