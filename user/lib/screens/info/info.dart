@@ -73,7 +73,7 @@ class Info extends StatelessWidget {
                     ],
                   )),
                   Padding(
-                    padding: const EdgeInsets.only(top: 5, left: 22, right: 22),
+                    padding: const EdgeInsets.only(top: 5, left: 27, right: 22),
                     child: Container(
                       height: 36,
                       width: 313,
@@ -98,19 +98,20 @@ class Info extends StatelessWidget {
                     ],
                   )),
                   Padding(
-                    padding: const EdgeInsets.only(top: 5, left: 22, right: 22),
+                    padding: const EdgeInsets.only(top: 5, left: 27, right: 22),
                     child: Container(
-                      height: 60,
-                      width: 313,
-                      child: Text(item!.desc),
-                    ),
+                        height: 60,
+                        width: 313,
+                        child: SingleChildScrollView(
+                          child: Text(item!.desc),
+                        )),
                   ),
                   Container(
                       child: Row(
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsets.only(top: 3, left: 27, right: 0),
+                            const EdgeInsets.only(top: 10, left: 27, right: 0),
                         child: Text(
                           'Preço',
                           style: TextStyle(
@@ -123,7 +124,7 @@ class Info extends StatelessWidget {
                     ],
                   )),
                   Padding(
-                    padding: const EdgeInsets.only(top: 5, left: 22, right: 22),
+                    padding: const EdgeInsets.only(top: 5, left: 27, right: 22),
                     child: Container(
                       height: 36,
                       width: 313,
