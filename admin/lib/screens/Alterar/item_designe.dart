@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/screens/Alterar/alterar_item.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
 
@@ -11,7 +12,13 @@ class ItemDesign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    
+    return InkWell(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => AlterarItem(item: this.item)));
+      },
+      child: Container(
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(15),
@@ -87,6 +94,7 @@ class ItemDesign extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }

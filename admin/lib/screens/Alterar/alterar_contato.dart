@@ -16,6 +16,16 @@ class AlterarContato extends StatefulWidget {
 
 class _AlterarContatoState extends State<AlterarContato> {
   final RuaController = TextEditingController();
+  final CidadeController = TextEditingController();
+  final SemanaController = TextEditingController();
+  final SabController = TextEditingController();
+  final Domingoontroller = TextEditingController();
+  final SemanHorController = TextEditingController();
+  final SabHorController = TextEditingController();
+  final DominHorController = TextEditingController();
+  final WhatsController = TextEditingController();
+  final FaceController = TextEditingController();
+  final InstaController = TextEditingController();
 
     @override
   void dispose() {
@@ -23,14 +33,149 @@ class _AlterarContatoState extends State<AlterarContato> {
     RuaController.dispose();
     super.dispose();
   }
-  
- updateData(){
-  CollectionReference contatos = FirebaseFirestore.instance.collection('patoBurguer');
-  Future<void> updateData(){
-    print('Ola');
-    return contatos
+
+
+CollectionReference contato= FirebaseFirestore.instance.collection('patoBurguer');
+
+Future<void> updateRua() async {
+
+  if (RuaController.text.length <= 0){
+    return;
+  }
+else{
+  return contato
     .doc('contato')
     .update({'contato.rua': RuaController.text})
+    .then((value) => print("User Updated"))
+    .catchError((error) => print("Failed to update user: $error"));
+}
+}
+Future<void> updateCidade() async {
+
+  if (CidadeController.text.length <= 0){
+    return;
+  }
+else{
+  return contato
+    .doc('contato')
+    .update({'contato.cidade': CidadeController.text})
+    .then((value) => print("User Updated"))
+    .catchError((error) => print("Failed to update user: $error"));
+}
+}
+Future<void> updateDomNome() async {
+
+  if (Domingoontroller.text.length <= 0){
+    return;
+  }
+else{
+  return contato
+    .doc('contato')
+    .update({'contato.domNome': Domingoontroller.text})
+    .then((value) => print("User Updated"))
+    .catchError((error) => print("Failed to update user: $error"));
+}
+}
+Future<void> updateDomHour() async {
+
+  if (DominHorController.text.length <= 0){
+    return;
+  }
+else{
+  return contato
+    .doc('contato')
+    .update({'contato.domHora': DominHorController.text})
+    .then((value) => print("User Updated"))
+    .catchError((error) => print("Failed to update user: $error"));
+}
+}
+Future<void> updateSabNom() async {
+
+  if (SabController.text.length <= 0){
+    return;
+  }
+else{
+  return contato
+    .doc('contato')
+    .update({'contato.sabNome': SabController.text})
+    .then((value) => print("User Updated"))
+    .catchError((error) => print("Failed to update user: $error"));
+}
+}
+Future<void> updateSabHour() async {
+
+  if (SabHorController.text.length <= 0){
+    return;
+  }
+else{
+  return contato
+    .doc('contato')
+    .update({'contato.sabHora': SabHorController.text})
+    .then((value) => print("User Updated"))
+    .catchError((error) => print("Failed to update user: $error"));
+}
+}
+Future<void> updateSemana() async {
+
+  if (SemanaController.text.length <= 0){
+    return;
+  }
+else{
+  return contato
+    .doc('contato')
+    .update({'contato.segNome': SemanaController.text})
+    .then((value) => print("User Updated"))
+    .catchError((error) => print("Failed to update user: $error"));
+}
+}
+Future<void> updateSemanaHour() async {
+
+  if (SemanHorController.text.length <= 0){
+    return;
+  }
+else{
+  return contato
+    .doc('contato')
+    .update({'contato.segHora': SemanHorController.text})
+    .then((value) => print("User Updated"))
+    .catchError((error) => print("Failed to update user: $error"));
+}
+}
+Future<void> updateWhats() async {
+
+  if (WhatsController.text.length <= 0){
+    return;
+  }
+else{
+  return contato
+    .doc('contato')
+    .update({'contato.numCelular': WhatsController.text})
+    .then((value) => print("User Updated"))
+    .catchError((error) => print("Failed to update user: $error"));
+}
+}
+Future<void> updateInsta() async {
+
+  if (InstaController.text.length <= 0){
+    return;
+  }
+else{
+  return contato
+    .doc('contato')
+    .update({'contato.instagram': InstaController.text})
+    .then((value) => print("User Updated"))
+    .catchError((error) => print("Failed to update user: $error"));
+}
+}
+Future<void> updateFace() async {
+
+  if (FaceController.text.length <= 0){
+    return;
+  }
+else{
+  return contato
+    .doc('contato')
+    .update({'contato.facebook': FaceController.text})
     .then((value) => print("User Updated"))
     .catchError((error) => print("Failed to update user: $error"));
 }
@@ -105,6 +250,7 @@ class _AlterarContatoState extends State<AlterarContato> {
                       contentPadding: EdgeInsets.all(6),
                       border: OutlineInputBorder(),
                       labelText: fireMenu.getRua(), fillColor: AppColors.orangeLight,
+                      
                       labelStyle: AppTextStyles.LabelContato,
                       suffixIcon: Icon(Icons.edit, color: AppColors.orangeLight,),
                     ),
@@ -116,6 +262,7 @@ class _AlterarContatoState extends State<AlterarContato> {
                   alignment: Alignment.topLeft,
                   padding: EdgeInsets.only(left: 25, bottom: 20, right: 25),
                   child: TextFormField(
+                    controller: CidadeController,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
                       contentPadding: EdgeInsets.all(6),
@@ -157,6 +304,7 @@ class _AlterarContatoState extends State<AlterarContato> {
                       alignment: Alignment.topLeft,
                       padding: EdgeInsets.only(left: 25, bottom: 10),
                       child: TextFormField(
+                      controller: SemanaController,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
                       contentPadding: EdgeInsets.all(6),
@@ -175,6 +323,7 @@ class _AlterarContatoState extends State<AlterarContato> {
                         alignment: Alignment.topLeft,
                         padding: EdgeInsets.only(bottom: 10, right: 10),
                         child: TextFormField(
+                          controller: SemanaController,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
                       contentPadding: EdgeInsets.all(6),
@@ -198,6 +347,7 @@ class _AlterarContatoState extends State<AlterarContato> {
                       alignment: Alignment.topLeft,
                       padding: EdgeInsets.only(left: 25, bottom: 10),
                       child: TextFormField(
+                        controller: SabController,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
                       contentPadding: EdgeInsets.all(6),
@@ -216,6 +366,7 @@ class _AlterarContatoState extends State<AlterarContato> {
                         alignment: Alignment.topLeft,
                         padding: EdgeInsets.only(bottom: 10, right: 10),
                         child: TextFormField(
+                        controller: SabHorController,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
                       contentPadding: EdgeInsets.all(6),
@@ -239,6 +390,7 @@ class _AlterarContatoState extends State<AlterarContato> {
                       alignment: Alignment.topLeft,
                       padding: EdgeInsets.only(left: 25, bottom: 10),
                       child: TextFormField(
+                        controller: Domingoontroller,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
                       contentPadding: EdgeInsets.all(6),
@@ -257,6 +409,7 @@ class _AlterarContatoState extends State<AlterarContato> {
                         alignment: Alignment.topLeft,
                         padding: EdgeInsets.only(bottom: 10, right: 10),
                         child: TextFormField(
+                          controller: DominHorController,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
                       contentPadding: EdgeInsets.all(6),
@@ -308,6 +461,7 @@ class _AlterarContatoState extends State<AlterarContato> {
                   alignment: Alignment.topLeft,
                   padding: EdgeInsets.only(left: 10, bottom: 5, right: 80),
                   child: TextFormField(
+                    controller: WhatsController,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
                       contentPadding: EdgeInsets.all(6),
@@ -347,6 +501,7 @@ class _AlterarContatoState extends State<AlterarContato> {
                   alignment: Alignment.topLeft,
                   padding: EdgeInsets.only(left: 10, bottom: 5, right: 80),
                   child: TextFormField(
+                    controller: FaceController,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
                       contentPadding: EdgeInsets.all(6),
@@ -375,6 +530,7 @@ class _AlterarContatoState extends State<AlterarContato> {
                   alignment: Alignment.topLeft,
                   padding: EdgeInsets.only(left: 10, bottom: 5, right: 80),
                   child: TextFormField(
+                    controller: InstaController,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
                       contentPadding: EdgeInsets.all(6),
@@ -390,7 +546,12 @@ class _AlterarContatoState extends State<AlterarContato> {
                   Padding(
                         padding: const EdgeInsets.only(bottom: 10, top: 30),
                         child: InkWell(
-                          onTap: updateData(),
+                          onTap: (){setState(() {
+                            updateRua(); updateCidade(); updateDomNome(); updateDomHour();
+                            updateSabNom(); updateSabHour(); updateSemana(); updateSemanaHour(); updateWhats();
+                            updateInsta(); updateFace();
+                            
+                          });fireMenu.getInfoFromFirebase(); Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomePage()));},
                           child: Container(
                               height: size.height*0.08,
                               width: size.width*0.76,
