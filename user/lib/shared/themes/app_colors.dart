@@ -13,4 +13,5 @@ class AppColors {
   static const white = Color(0xFFFAFAFA);
   static const fullWhite = Color(0xFFFFFFFF);
   static const text = Color(0xFF434343);
+  static const line = Color(0xFFC4C4C4);
 }

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/database/firebase_menu.dart';
+import 'package:pato_burguer/screens/menu/item.dart';
+import 'package:pato_burguer/screens/menu/menu.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
 import 'package:pato_burguer/shared/themes/custom_icons.dart';
+import 'package:provider/provider.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);

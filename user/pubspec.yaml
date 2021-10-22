@@ -79,6 +79,11 @@ flutter:
    - family: custom_icons
      fonts:
       - asset: assets/icons/custom_icons.ttf
+  
+   - family: RedesSociais
+     fonts:
+      - asset: assets/icons/RedesSociais.ttf
+
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic

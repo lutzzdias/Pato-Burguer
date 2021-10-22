@@ -18,6 +18,12 @@ class _MenuState extends State<Menu> {
   List<Item> itens = [];
 
   @override
+  void initState() {
+    super.initState();
+    itens = getList(0);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.orangeDark,
@@ -30,7 +36,10 @@ class _MenuState extends State<Menu> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: const Icon(Icons.arrow_back_ios),
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: AppColors.fullWhite,
+              ),
             ),
             title: Text(
               "Cardápio",
