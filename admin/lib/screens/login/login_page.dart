@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
            child: Container(
              decoration: BoxDecoration(
                color: AppColors.white,
-               borderRadius: BorderRadius.all(Radius.circular(7))
+               borderRadius: BorderRadius.all(Radius.circular(10))
              ),
              width: size.width * 0.85,
              height: size.height * 0.60,

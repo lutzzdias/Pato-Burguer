@@ -11,5 +11,7 @@ class AppColors {
   static const grey = Color(0xFFF2EDE5);
   static const whiteDark = Color(0xFFF6F4F1);
   static const white = Color(0xFFFAFAFA);
+  static const fullWhite = Color(0xFFFFFFFF);
   static const text = Color(0xFF434343);
+  static const line = Color(0xFFC4C4C4);
 }

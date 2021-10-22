@@ -9,6 +9,7 @@ import 'package:pato_burguer/screens/login/login_page.dart';
 import 'package:pato_burguer/screens/login/welcome_page.dart';
 import 'package:pato_burguer/services/auth_service.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
+import 'database/firebase_menu.dart';
 import 'meu_aplicativo.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +18,8 @@ void main() async{
   runApp(
     MultiProvider(
       providers: [
+        Provider(create: (_) => FirebaseMenu()
+        ,),
         ChangeNotifierProvider(create: (context) => AuthService()),
 
     ],

@@ -1,12 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/database/firebase_menu.dart';
 import 'package:pato_burguer/screens/Alterar/alterar_cardapio.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_images.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
 
-class AlterarItem extends StatelessWidget {
+class AlterarItem extends StatefulWidget {
   const AlterarItem({Key? key}) : super(key: key);
 
+  @override
+  _AlterarItemState createState() => _AlterarItemState();
+
+}
+
+class _AlterarItemState extends State<AlterarItem> {
+  final formKey = GlobalKey<FormState>();
+  final nome = TextEditingController();
+  final senha = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -78,6 +89,7 @@ class AlterarItem extends StatelessWidget {
                                height: 36,
                                width: 313,
                                child: TextFormField(
+                                 controller: nome,
                                  decoration: InputDecoration(
                                        border: OutlineInputBorder(),
                                        focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
@@ -168,15 +180,34 @@ class AlterarItem extends StatelessWidget {
                                height: 36,
                                width: 313,
                                child: TextFormField(
+                                  
                                  decoration: InputDecoration(
                                        border: OutlineInputBorder(),
                                        focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
                                        prefixText: "R\$ ", labelText: '0,00', labelStyle: AppTextStyles.NomeAlteravel,
                                        prefixStyle: TextStyle(color: AppColors.orangeDark)
                                  ),
+                                 
                                ),
                              ),
-                           ),                                                                                                          
+                           ),    
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: InkWell(
+                          onTap: (){
+                            FirebaseFirestore.instance.collection('patoBurguer').doc('lanches').update({'nome': nome});
+                            },
+                          child: Container(
+                              height: size.height*0.08,
+                              width: size.width*0.76,
+                              decoration: BoxDecoration(
+                                color: AppColors.orangeDark,
+                                borderRadius: BorderRadius.all(Radius.circular(8)),
+                                ),
+                                child: Center(child: Text('Salvar', style: AppTextStyles.buttons)),
+                            ),
+                        ),
+                      ),                                                                                                      
                       ],
                      ),
                  ),

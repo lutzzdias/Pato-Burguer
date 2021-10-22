@@ -1,16 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/database/firebase_menu.dart';
 import 'package:pato_burguer/screens/login/welcome_page.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_images.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
+import 'package:provider/provider.dart';
 
 import 'item_adm.dart';
+import 'item_designe.dart';
 
-class AlterarCardapio extends StatelessWidget {
+class AlterarCardapio extends StatefulWidget {
   const AlterarCardapio({Key? key}) : super(key: key);
 
   @override
+  _AlterarCardapioState createState() => _AlterarCardapioState();
+  
+}
+
+class _AlterarCardapioState extends State<AlterarCardapio> {
+  final List<bool> isSelected = [true];
+
+  List<Item> itens = [];
+
+  @override
+  void initState() {
+    super.initState();
+    itens = getList();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    FirebaseMenu fireMenu = Provider.of<FirebaseMenu>(context, listen: false);
+    itens = fireMenu.getItens();
     return Scaffold(
       backgroundColor: AppColors.orangeDark,
        appBar: AppBar(
@@ -48,32 +69,29 @@ class AlterarCardapio extends StatelessWidget {
                    topLeft: Radius.circular(15),
                    topRight: Radius.circular(15),
                  )),
-                 child: Container(
-                   width: 135,
-                   height: 168,
-                   child: GridView.count(
-            padding: const EdgeInsets.all(25),
-            crossAxisCount: 2,
-            mainAxisSpacing: 30,
-            crossAxisSpacing: 30,
-            childAspectRatio: 135 / 155,
-            children: [
-              Item(),
-              Item2(),
-              Item3(),
-              Item4(),
-              Item5(),
-              Item6(),
-              Item7(),
-              Item8(),
-              Item9(),
-            ],
-          ),
-                       )
+                 child: GridView.builder(
+            padding: const EdgeInsets.all(30),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 30,
+              crossAxisSpacing: 30,
+              childAspectRatio: 135 / 155,
+            ),
+            itemCount: itens.length,
+            itemBuilder: (context, index) {
+              return ItemDesign(item: itens[index]);
+            },
+          )
                  ),
              ),
          ],)
          ),
     );
+  }
+  List<Item> getList(){
+    
+FirebaseMenu fireMenu = Provider.of<FirebaseMenu>(context, listen: false);
+
+return fireMenu.getItens();
   }
 }
