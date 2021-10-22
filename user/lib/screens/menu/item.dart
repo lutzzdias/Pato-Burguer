@@ -6,6 +6,7 @@ class Item {
   bool promocao;
   double? precoAntigo;
   int? desconto;
+  String tipo;
 
   Item({
     required this.desc,
@@ -15,6 +16,7 @@ class Item {
     required this.promocao,
     this.precoAntigo,
     this.desconto,
+    required this.tipo,
   });
 
   factory Item.fromJson(Map<String, dynamic> json) {
@@ -26,6 +28,7 @@ class Item {
       promocao: json['promocao'],
       precoAntigo: json['precoAntigo']?.toDouble(),
       desconto: json['desconto']?.toInt(),
+      tipo: json['tipo'],
     );
   }
 }
