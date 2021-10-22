@@ -3,13 +3,12 @@ import 'package:pato_burguer/database/firebase_menu.dart';
 import 'package:pato_burguer/screens/contact/contact.dart';
 import 'package:pato_burguer/screens/home/home.dart';
 import 'package:pato_burguer/screens/menu/menu.dart';
+import 'package:pato_burguer/screens/splash/spash_screen.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
 
   runApp(
     Provider(
@@ -24,14 +23,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FirebaseMenu fireMenu = Provider.of<FirebaseMenu>(context, listen: false);
-
-    fireMenu.getInfoFromFirebase();
-
     return MaterialApp(
       initialRoute: "~/",
       routes: {
-        "~/": (context) => Home(),
+        "~/": (context) => SplashScreen(goToPage: "~/home", duration: 1),
+        "~/home": (context) => Home(),
         "~/menu": (context) => Menu(),
         "~/contact": (context) => Contact(),
       },
