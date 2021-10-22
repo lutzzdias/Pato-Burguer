@@ -1,5 +1,6 @@
 class AppImages {
-  static const LogoPato = "assets/images/Logo_Pato_Burguer1_0_3_ final_vesion.png";
+  static const LogoPato =
+      "assets/images/Logo_Pato_Burguer1_0_3_ final_vesion.png";
   static const LogoLetras = "assets/images/Logo_letras.png";
   static const Admin = "assets/images/administrador.png";
   static const Cardapio = "assets/images/cardapio.png";
@@ -32,5 +33,9 @@ class AppImages {
   static const PatoGrelhado = "assets/images/pato-grelhado.png";
   static const PatoChefeJoia = "assets/images/pato_joia_chapeu_chef.png";
   static const PatoChefePlaca = "assets/images/pato_placa_chef.png";
-
+  static const bare = "assets/images/bare.png";
+  static const guaravita = "assets/images/guaravita.png";
+  static const PepsiTwist = "assets/images/pepsi.png";
+  static const SucoDeUva = "assets/images/sucodeuva.png";
+  static const SucoDeLaranja = "assets/images/sucodelaranja.png";
 }
