@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Pato Burguer',
       theme: ThemeData(primaryColor: AppColors.white),
-      home: const Home(),
+      home: Home(),
     );
   }
 }

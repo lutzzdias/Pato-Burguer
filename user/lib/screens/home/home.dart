@@ -1,19 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pato_burguer/database/firebase_menu.dart';
 import 'package:pato_burguer/screens/home/navigation_bar.dart';
 import 'package:pato_burguer/screens/home/promocao_design.dart';
+import 'package:pato_burguer/screens/menu/item.dart';
 import 'package:pato_burguer/shared/themes/app_colors.dart';
 import 'package:pato_burguer/shared/themes/app_images.dart';
 import 'package:pato_burguer/shared/themes/app_text_styles.dart';
 import 'package:pato_burguer/shared/themes/custom_icons.dart';
+import 'package:provider/provider.dart';
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  Home({Key? key}) : super(key: key);
   final int screenIndex = 0;
 
   @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    FirebaseMenu fireMenu = Provider.of<FirebaseMenu>(context, listen: false);
+    List<Item> itensHome = fireMenu.getPromocoes();
     return Scaffold(
       backgroundColor: AppColors.orangeDark,
       body: Stack(
@@ -69,12 +78,18 @@ class Home extends StatelessWidget {
                   style: AppTextStyles.homeNameOrange,
                 ),
               ),
-              Column(
-                children: [
-                  PromocaoDesign(),
-                  PromocaoDesign(),
-                  PromocaoDesign(),
-                ],
+              ListView.separated(
+                itemBuilder: (context, index) {
+                  return PromocaoDesign(item: itensHome[index]);
+                },
+                itemCount: 3,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                separatorBuilder: (BuildContext context, int index) {
+                  return SizedBox(
+                    height: 30,
+                  );
+                },
               ),
             ],
           ),
