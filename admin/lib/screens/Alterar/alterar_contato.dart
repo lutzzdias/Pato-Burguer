@@ -9,6 +9,18 @@ import 'package:provider/provider.dart';
 class AlterarContato extends StatelessWidget {
   const AlterarContato({Key? key}) : super(key: key);
 
+updateData(){
+  CollectionReference contatos = FirebaseFirestore.instance.collection('patoBurguer');
+
+  Future<void> updateContatos(){
+    return contatos
+    .doc('contato')
+    .update({'cidade': 90210})
+    .then((value) => print("User Updated"))
+    .catchError((error) => print("Failed to update user: $error"));
+}
+}
+
   @override
   Widget build(BuildContext context) {
     FirebaseMenu fireMenu = Provider.of<FirebaseMenu>(context, listen: false);
@@ -280,7 +292,7 @@ class AlterarContato extends StatelessWidget {
                     height: size.height * 0.05,
                   width: size.height * 0.50,
                   alignment: Alignment.topLeft,
-                  padding: EdgeInsets.only(left: 25, bottom: 0, right: 25),
+                  padding: EdgeInsets.only(left: 10, bottom: 5, right: 80),
                   child: TextFormField(
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
@@ -319,7 +331,7 @@ class AlterarContato extends StatelessWidget {
                     height: size.height * 0.05,
                   width: size.height * 0.50,
                   alignment: Alignment.topLeft,
-                  padding: EdgeInsets.only(left: 25, bottom: 5, right: 25),
+                  padding: EdgeInsets.only(left: 10, bottom: 5, right: 80),
                   child: TextFormField(
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
@@ -347,7 +359,7 @@ class AlterarContato extends StatelessWidget {
                     height: size.height * 0.05,
                   width: size.height * 0.50,
                   alignment: Alignment.topLeft,
-                  padding: EdgeInsets.only(left: 25, bottom: 5, right: 25),
+                  padding: EdgeInsets.only(left: 10, bottom: 5, right: 80),
                   child: TextFormField(
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orangeDark)),
